@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
     LayoutDashboard,
@@ -12,6 +13,8 @@ import {
 } from 'lucide-react';
 
 const Sidebar = () => {
+    const pathname = usePathname();
+
     const menuItems = [
         { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
         { name: 'Employees', icon: Users, path: '/employees' },
@@ -21,6 +24,10 @@ const Sidebar = () => {
         { name: 'Reports', icon: FileText, path: '/reports' },
         { name: 'Settings', icon: Settings, path: '/settings' },
     ];
+
+    const isActive = (path: string) => {
+        return pathname === path;
+    };
 
     return (
         <motion.div
@@ -39,22 +46,48 @@ const Sidebar = () => {
             {/* Navigation */}
             <nav className="flex-1 overflow-y-auto py-6">
                 <ul className="space-y-1 px-3">
-                    {menuItems.map((item, index) => (
-                        <motion.li
-                            key={item.name}
-                            initial={{ x: -20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: index * 0.05, duration: 0.3 }}
-                        >
-                            <Link
-                                href={item.path}
-                                className="flex items-center px-4 py-3 text-gray-400 hover:text-white hover:bg-sidebar-hover rounded-xl transition-all duration-200 group"
+                    {menuItems.map((item, index) => {
+                        const active = isActive(item.path);
+                        return (
+                            <motion.li
+                                key={item.name}
+                                initial={{ x: -20, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ delay: index * 0.05, duration: 0.3 }}
                             >
-                                <item.icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-                                <span className="font-medium">{item.name}</span>
-                            </Link>
-                        </motion.li>
-                    ))}
+                                <Link
+                                    href={item.path}
+                                    className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 group relative ${active
+                                            ? 'bg-chart-purple text-white shadow-lg'
+                                            : 'text-gray-400 hover:text-white hover:bg-sidebar-hover'
+                                        }`}
+                                >
+                                    {/* Active indicator */}
+                                    {active && (
+                                        <motion.div
+                                            layoutId="activeTab"
+                                            className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"
+                                            initial={false}
+                                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                        />
+                                    )}
+
+                                    <item.icon className={`w-5 h-5 mr-3 transition-transform ${active ? 'scale-110' : 'group-hover:scale-110'
+                                        }`} />
+                                    <span className="font-medium">{item.name}</span>
+
+                                    {/* Pulse animation for active item */}
+                                    {active && (
+                                        <motion.div
+                                            className="absolute right-3 w-2 h-2 bg-white rounded-full"
+                                            animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        />
+                                    )}
+                                </Link>
+                            </motion.li>
+                        );
+                    })}
                 </ul>
             </nav>
 
