@@ -25,8 +25,8 @@ const StatCard = ({ title, value, change, icon: Icon, trend, index }: any) => (
             <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className={`p-3 rounded-xl ${trend === 'up'
-                        ? 'bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600'
-                        : 'bg-gradient-to-br from-cyan-100 to-cyan-200 text-cyan-600'
+                        ? 'bg-purple-100 text-purple-600'
+                        : 'bg-cyan-100 text-cyan-600'
                     }`}
             >
                 <Icon className="w-6 h-6" />

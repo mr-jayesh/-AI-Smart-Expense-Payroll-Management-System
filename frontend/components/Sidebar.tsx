@@ -31,7 +31,7 @@ const Sidebar = () => {
         >
             {/* Logo Section */}
             <div className="flex items-center justify-center h-20 border-b border-gray-200">
-                <h1 className="text-2xl font-bold bg-gradient-purple bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold text-purple-600">
                     AI-Payroll
                 </h1>
             </div>
@@ -61,7 +61,7 @@ const Sidebar = () => {
             {/* User Profile Section */}
             <div className="p-4 border-t border-gray-200">
                 <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                    <div className="w-10 h-10 rounded-full bg-gradient-purple flex items-center justify-center text-sm font-bold text-white shadow-md">
+                    <div className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold text-white shadow-md">
                         AD
                     </div>
                     <div className="flex-1 min-w-0">
