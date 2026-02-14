@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import DashboardStats from '@/components/DashboardStats';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { IndianRupee, Wallet, Users, Activity } from 'lucide-react';
 
 export default function Home() {
@@ -29,9 +30,13 @@ export default function Home() {
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-screen">
-                <div className="glass-card p-8">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="card p-8"
+                >
                     <div className="animate-pulse text-text-secondary">Loading Dashboard...</div>
-                </div>
+                </motion.div>
             </div>
         );
     }
@@ -72,19 +77,27 @@ export default function Home() {
         },
     ];
 
+    // Vibrant colors for bars
+    const barColors = ['#6366F1', '#8B5CF6', '#06B6D4', '#14B8A6'];
+
     return (
         <div className="space-y-8">
             {/* Header */}
-            <div className="flex justify-between items-center">
+            <motion.div
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="flex justify-between items-center"
+            >
                 <div>
                     <h2 className="text-3xl font-bold text-text-primary mb-2">Dashboard Overview</h2>
                     <p className="text-text-secondary">Real-time financial insights and analytics</p>
                 </div>
-                <div className="glass-card px-4 py-2">
+                <div className="card px-4 py-2">
                     <p className="text-sm text-text-muted">Last updated</p>
                     <p className="text-sm font-medium text-text-primary">{new Date().toLocaleTimeString()}</p>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Stats Cards */}
             <DashboardStats stats={statsConfig} />
@@ -92,87 +105,100 @@ export default function Home() {
             {/* Main Charts Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Cash Flow Chart */}
-                <div className="lg:col-span-2 glass-card p-6">
+                <motion.div
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="lg:col-span-2 card p-6"
+                >
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xl font-semibold text-text-primary">Cash Flow Analysis</h3>
                         <div className="flex gap-4 text-sm">
                             <div className="flex items-center gap-2">
-                                <div className="w-3 h-3 rounded-full bg-accent-primary"></div>
+                                <div className="w-3 h-3 rounded-full bg-purple-500"></div>
                                 <span className="text-text-secondary">Income</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <div className="w-3 h-3 rounded-full bg-accent-secondary"></div>
+                                <div className="w-3 h-3 rounded-full bg-cyan-500"></div>
                                 <span className="text-text-secondary">Expense</span>
                             </div>
                         </div>
                     </div>
                     <div className="h-80">
                         <ResponsiveContainer width="100%" height="100%">
-                            <AreaChart data={chartData}>
-                                <defs>
-                                    <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#6366f1" stopOpacity={0.8} />
-                                        <stop offset="95%" stopColor="#6366f1" stopOpacity={0.1} />
-                                    </linearGradient>
-                                    <linearGradient id="colorExpense" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.8} />
-                                        <stop offset="95%" stopColor="#14b8a6" stopOpacity={0.1} />
-                                    </linearGradient>
-                                </defs>
+                            <BarChart data={chartData}>
                                 <XAxis
                                     dataKey="name"
-                                    stroke="#64748b"
+                                    stroke="#9CA3AF"
                                     style={{ fontSize: '12px' }}
+                                    axisLine={false}
+                                    tickLine={false}
                                 />
                                 <YAxis
-                                    stroke="#64748b"
+                                    stroke="#9CA3AF"
                                     style={{ fontSize: '12px' }}
+                                    axisLine={false}
+                                    tickLine={false}
                                 />
-                                <CartesianGrid strokeDasharray="3 3" stroke="#1a1f3a" vertical={false} />
                                 <Tooltip
                                     contentStyle={{
-                                        backgroundColor: 'rgba(10, 14, 26, 0.95)',
-                                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                                        borderRadius: '8px',
-                                        color: '#ffffff'
+                                        backgroundColor: '#FFFFFF',
+                                        border: '1px solid #E5E7EB',
+                                        borderRadius: '12px',
+                                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                                     }}
+                                    cursor={{ fill: 'rgba(99, 102, 241, 0.1)' }}
                                 />
-                                <Area
-                                    type="monotone"
+                                <Bar
                                     dataKey="income"
-                                    stroke="#6366f1"
-                                    strokeWidth={2}
-                                    fillOpacity={1}
-                                    fill="url(#colorIncome)"
+                                    fill="url(#purpleGradient)"
+                                    radius={[8, 8, 0, 0]}
+                                    animationDuration={1000}
                                 />
-                                <Area
-                                    type="monotone"
+                                <Bar
                                     dataKey="expense"
-                                    stroke="#14b8a6"
-                                    strokeWidth={2}
-                                    fillOpacity={1}
-                                    fill="url(#colorExpense)"
+                                    fill="url(#cyanGradient)"
+                                    radius={[8, 8, 0, 0]}
+                                    animationDuration={1000}
                                 />
-                            </AreaChart>
+                                <defs>
+                                    <linearGradient id="purpleGradient" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stopColor="#6366F1" />
+                                        <stop offset="100%" stopColor="#8B5CF6" />
+                                    </linearGradient>
+                                    <linearGradient id="cyanGradient" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stopColor="#06B6D4" />
+                                        <stop offset="100%" stopColor="#14B8A6" />
+                                    </linearGradient>
+                                </defs>
+                            </BarChart>
                         </ResponsiveContainer>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Recent Activity / Alerts */}
-                <div className="glass-card p-6">
+                <motion.div
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    className="card p-6"
+                >
                     <h3 className="text-xl font-semibold text-text-primary mb-6">Recent Alerts</h3>
                     <div className="space-y-4">
                         {recentAlerts.length > 0 ? (
-                            recentAlerts.map((alert: any) => (
-                                <div
+                            recentAlerts.map((alert: any, index: number) => (
+                                <motion.div
                                     key={alert.id}
-                                    className={`p-4 rounded-lg border ${alert.severity === 'High'
-                                            ? 'bg-red-500/10 border-red-500/30'
-                                            : 'bg-accent-primary/10 border-accent-primary/30'
+                                    initial={{ x: 20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.6 + index * 0.1 }}
+                                    className={`p-4 rounded-xl border ${alert.severity === 'High'
+                                            ? 'bg-red-50 border-red-200'
+                                            : 'bg-purple-50 border-purple-200'
                                         }`}
                                 >
                                     <div className="flex items-start gap-3">
-                                        <div className={`w-2 h-2 mt-2 rounded-full ${alert.severity === 'High' ? 'bg-red-500' : 'bg-accent-primary'
+                                        <div className={`w-2 h-2 mt-2 rounded-full ${alert.severity === 'High' ? 'bg-red-500' : 'bg-purple-500'
                                             }`}></div>
                                         <div className="flex-1">
                                             <p className="text-sm font-medium text-text-primary">{alert.message}</p>
@@ -182,7 +208,7 @@ export default function Home() {
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))
                         ) : (
                             <div className="text-center py-8">
@@ -190,10 +216,14 @@ export default function Home() {
                             </div>
                         )}
                     </div>
-                    <button className="w-full mt-6 py-3 text-sm font-medium text-accent-primary hover:bg-accent-primary/10 rounded-lg transition-all duration-200 border border-accent-primary/30">
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full mt-6 py-3 text-sm font-medium text-purple-600 hover:bg-purple-50 rounded-xl transition-all duration-200 border border-purple-200"
+                    >
                         View All Alerts
-                    </button>
-                </div>
+                    </motion.button>
+                </motion.div>
             </div>
         </div>
     )

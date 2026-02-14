@@ -9,40 +9,41 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Outfit', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],
             },
             colors: {
-                // Premium Dark Theme
-                'bg-primary': '#0a0e1a',
-                'bg-secondary': '#0f1729',
-                'bg-tertiary': '#1a1f3a',
-                
-                // Accent Colors
-                'accent-primary': '#6366f1',
-                'accent-secondary': '#14b8a6',
-                'accent-purple': '#8b5cf6',
-                'accent-pink': '#ec4899',
-                
+                // Light Theme
+                'bg-primary': '#FAFBFC',
+                'bg-secondary': '#F7F8FA',
+                'bg-card': '#FFFFFF',
+
+                // Vibrant Accent Colors (Dribbble-inspired)
+                'purple': {
+                    500: '#6366F1',
+                    600: '#8B5CF6',
+                },
+                'cyan': {
+                    500: '#06B6D4',
+                    600: '#14B8A6',
+                },
+
                 // Text Colors
-                'text-primary': '#ffffff',
-                'text-secondary': '#94a3b8',
-                'text-muted': '#64748b',
-                
-                // Glass
-                'glass-bg': 'rgba(255, 255, 255, 0.05)',
-                'glass-border': 'rgba(255, 255, 255, 0.1)',
+                'text-primary': '#1F2937',
+                'text-secondary': '#6B7280',
+                'text-muted': '#9CA3AF',
             },
             backgroundImage: {
-                'gradient-primary': 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-                'gradient-secondary': 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)',
-                'gradient-dark': 'linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 50%, #0f1729 100%)',
-            },
-            backdropBlur: {
-                'glass': '20px',
+                'gradient-purple': 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+                'gradient-cyan': 'linear-gradient(135deg, #06B6D4 0%, #14B8A6 100%)',
+                'gradient-purple-cyan': 'linear-gradient(135deg, #6366F1 0%, #06B6D4 100%)',
             },
             boxShadow: {
-                'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
-                'glow': '0 0 20px rgba(99, 102, 241, 0.5)',
+                'card': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                'card-hover': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                'card-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            },
+            borderRadius: {
+                'card': '16px',
             },
         },
     },
