@@ -27,11 +27,11 @@ const Sidebar = () => {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col w-64 h-screen bg-white border-r border-gray-200 shadow-sm"
+            className="flex flex-col w-64 h-screen bg-sidebar"
         >
             {/* Logo Section */}
-            <div className="flex items-center justify-center h-20 border-b border-gray-200">
-                <h1 className="text-2xl font-bold text-purple-600">
+            <div className="flex items-center justify-center h-20 border-b border-sidebar-hover">
+                <h1 className="text-2xl font-bold text-white">
                     AI-Payroll
                 </h1>
             </div>
@@ -48,7 +48,7 @@ const Sidebar = () => {
                         >
                             <Link
                                 href={item.path}
-                                className="flex items-center px-4 py-3 text-text-secondary hover:text-purple-500 hover:bg-purple-50 rounded-xl transition-all duration-200 group"
+                                className="flex items-center px-4 py-3 text-gray-400 hover:text-white hover:bg-sidebar-hover rounded-xl transition-all duration-200 group"
                             >
                                 <item.icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                                 <span className="font-medium">{item.name}</span>
@@ -59,14 +59,14 @@ const Sidebar = () => {
             </nav>
 
             {/* User Profile Section */}
-            <div className="p-4 border-t border-gray-200">
-                <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
-                    <div className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold text-white shadow-md">
+            <div className="p-4 border-t border-sidebar-hover">
+                <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-sidebar-hover transition-colors cursor-pointer">
+                    <div className="w-10 h-10 rounded-full bg-chart-cyan flex items-center justify-center text-sm font-bold text-white shadow-md">
                         AD
                     </div>
                     <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-text-primary truncate">Admin User</p>
-                        <p className="text-xs text-text-muted truncate">admin@company.com</p>
+                        <p className="text-sm font-medium text-white truncate">Admin User</p>
+                        <p className="text-xs text-gray-400 truncate">admin@company.com</p>
                     </div>
                 </div>
             </div>
