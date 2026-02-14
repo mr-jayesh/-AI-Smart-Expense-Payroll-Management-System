@@ -1,67 +1,88 @@
-import { ArrowUpRight, ArrowDownRight, IndianRupee, Wallet, Users, Activity } from 'lucide-react';
+"use client";
+import { motion } from 'framer-motion';
+import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 
-const StatCard = ({ title, value, change, icon: Icon, trend }: any) => (
-    <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
-        <div className="flex items-center justify-between">
-            <div>
-                <p className="text-sm font-medium text-gray-500">{title}</p>
-                <p className="text-2xl font-bold text-gray-900 mt-1">{value}</p>
-            </div>
-            <div className={`p-3 rounded-full ${trend === 'up' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
-                <Icon className="w-6 h-6" />
-            </div>
-        </div>
-        <div className="mt-4 flex items-center text-sm">
-            {trend === 'up' ? (
-                <ArrowUpRight className="w-4 h-4 text-green-500 mr-1" />
-            ) : (
-                <ArrowDownRight className="w-4 h-4 text-red-500 mr-1" />
-            )}
-            <span className={trend === 'up' ? 'text-green-500' : 'text-red-500'}>
-                {change}
-            </span>
-            <span className="text-gray-400 ml-2">vs last month</span>
-        </div>
-    </div>
-);
+// Generate sample mini chart data
+const generateMiniChartData = () => {
+    return Array.from({ length: 7 }, (_, i) => ({
+        value: Math.floor(Math.random() * 100) + 50
+    }));
+};
 
-const DashboardStats = ({ stats }: { stats: any[] }) => {
-    // If no stats, use defaults or skeleton
-    const displayStats = stats && stats.length > 0 ? stats : [
-        {
-            title: 'Total Payroll',
-            value: '₹0',
-            change: '+0%',
-            icon: IndianRupee,
-            trend: 'up',
-        },
-        {
-            title: 'Monthly Burn Rate',
-            value: '₹0',
-            change: '+0%',
-            icon: Wallet,
-            trend: 'down',
-        },
-        {
-            title: 'Active Employees',
-            value: '0',
-            change: '+0',
-            icon: Users,
-            trend: 'up',
-        },
-        {
-            title: 'Financial Health',
-            value: '0/100',
-            change: '+0',
-            icon: Activity,
-            trend: 'up',
-        },
-    ];
+const StatCard = ({ title, value, change, icon: Icon, trend, index, chartColor }: any) => {
+    const miniData = generateMiniChartData();
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {displayStats.map((stat, index) => (
-                <StatCard key={index} {...stat} />
+        <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            whileHover={{ y: -4, boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
+            className="card p-6"
+        >
+            <div className="flex items-start justify-between mb-4">
+                <div className="flex-1">
+                    <p className="text-sm font-medium text-text-muted mb-1">{title}</p>
+                    <motion.p
+                        initial={{ scale: 0.8 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                        className="text-2xl font-bold text-text-primary"
+                    >
+                        {value}
+                    </motion.p>
+                    <div className="flex items-center text-sm mt-2">
+                        {trend === 'up' ? (
+                            <ArrowUpRight className="w-4 h-4 text-green-500 mr-1" />
+                        ) : (
+                            <ArrowDownRight className="w-4 h-4 text-red-500 mr-1" />
+                        )}
+                        <span className={`font-medium ${trend === 'up' ? 'text-green-500' : 'text-red-500'}`}>
+                            {change}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mini Area Chart */}
+            <div className="h-16 -mx-2">
+                <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={miniData}>
+                        <defs>
+                            <linearGradient id={`gradient-${index}`} x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor={chartColor} stopOpacity={0.3} />
+                                <stop offset="100%" stopColor={chartColor} stopOpacity={0.05} />
+                            </linearGradient>
+                        </defs>
+                        <Area
+                            type="monotone"
+                            dataKey="value"
+                            stroke={chartColor}
+                            strokeWidth={2}
+                            fill={`url(#gradient-${index})`}
+                            animationDuration={1500}
+                        />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
+        </motion.div>
+    );
+};
+
+const DashboardStats = ({ stats }: { stats: any[] }) => {
+    // Chart colors matching reference
+    const chartColors = ['#8B5CF6', '#EC4899', '#06B6D4', '#F59E0B'];
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+                <StatCard
+                    key={index}
+                    {...stat}
+                    index={index}
+                    chartColor={chartColors[index % chartColors.length]}
+                />
             ))}
         </div>
     );
