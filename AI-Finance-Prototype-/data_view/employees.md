@@ -1,0 +1,53 @@
+# employees
+
+| id | full_name | email | role | department | base_salary | join_date | status | bank_account_no | bank_ifsc | created_at | updated_at |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 01e2c54b-0855-42dc-8c4a-37af60b87282 | Aarushi Sharma | aarushi.sharma@company.com | Employee | Marketing | 68000.00 | 2022-12-17 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 0259bd92-6253-4d78-96fa-d19fd12966d2 | Ankit Roy | ankit.roy@company.com | Employee | Engineering | 86000.00 | 2020-06-05 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 0c07ffcb-b3c5-432b-9c24-279313f6c0bc | Rohan Verma | rohan.verma@company.com | Employee | Marketing | 65000.00 | 2023-06-09 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 0d1931ae-97ba-461d-b80a-fb78f9c92a76 | Shreya Pillai | shreya.pillai@company.com | Employee | Sales | 69000.00 | 2023-04-08 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 1a773852-d30f-440d-bad3-1063f1cf5a73 | Manish Yadav | manish.yadav@company.com | Employee | Operations | 68000.00 | 2022-03-16 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 1bf9da97-a504-44fc-a4f2-8248dcc2d077 | Nikhil Arora | nikhil.arora@company.com | Employee | Sales | 72000.00 | 2021-11-22 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 2080a886-1f11-4f3f-82bd-4878ad70a1d7 | Kavya Nair | kavya.nair@company.com | Employee | Design | 72000.00 | 2023-01-28 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 24e6086b-d7d0-4eb1-869b-12b80aae7662 | Deepak Kumar | deepak.kumar@company.com | Employee | Operations | 65000.00 | 2023-03-02 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 2f1e2720-5837-458c-af6c-0ad53c96f588 | Rahul Nair | rahul.nair@company.com | Employee | Engineering | 71000.00 | 2022-04-10 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 2f3ec002-dff4-40a4-ba24-86fa2145a0eb | Alok Pradhan | alok.pradhan@company.com | Employee | Operations | 70000.00 | 2023-02-01 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 396f6c4e-1d69-428a-8232-bf79f116cb29 | Kunal Mehra | kunal.mehra@company.com | Employee | Finance | 79000.00 | 2021-11-30 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 3f2f62e4-8110-403a-9c75-c77589c34caa | Amit Kulkarni | amit.kulkarni@company.com | Employee | Operations | 69000.00 | 2023-05-02 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 425fabec-7567-4736-9d90-4e4fa1d41844 | Pooja Menon | pooja.menon@company.com | Employee | HR | 64000.00 | 2023-02-18 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 44137e51-f5c0-4e83-9c96-391d832dd2f2 | Shruti Bose | shruti.bose@company.com | Employee | Finance | 74000.00 | 2023-07-04 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 45671ec2-bf0e-4a11-bedf-d3ef3dedaebe | Karan Malhotra | karan.malhotra@company.com | Admin | Engineering | 95000.00 | 2020-07-21 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 4950df59-ff2b-4e35-a344-676b3b8edb7a | Mohit Shah | mohit.shah@company.com | Employee | Finance | 76000.00 | 2021-03-13 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 4c9f2026-1b02-461c-8be0-299fb8cd45d1 | Dev Malhotra | dev.malhotra@company.com | Employee | Sales | 74000.00 | 2023-07-29 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 5089e410-99f4-494a-8600-cbc54aa2261e | Rohit Das | rohit.das@company.com | Employee | Engineering | 82000.00 | 2021-09-29 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 52e4e5f3-6464-4fcf-a61a-11e7d99bbd0e | Siddharth Jain | siddharth.jain@company.com | Admin | Finance | 98000.00 | 2020-01-27 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 5588c2dc-7642-4370-a309-1535ba459d30 | Ishita Roy | ishita.roy@company.com | Employee | Design | 70000.00 | 2023-04-15 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 5903eb60-9f76-434b-9af1-5521c2e69db0 | Neha Reddy | neha.reddy@company.com | Employee | Marketing | 67000.00 | 2022-09-13 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 6146512e-bd71-42e9-ab70-9c48342c9a8f | Arjun Mehta | arjun.mehta@company.com | Employee | Engineering | 72000.00 | 2023-03-14 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 63e73ec4-2393-4e05-bf62-7078cf379667 | Naina Joshi | naina.joshi@company.com | Employee | Finance | 77000.00 | 2021-08-18 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 6a7e434a-17b3-4295-a1fa-7917709d3e25 | Sneha Kapoor | sneha.kapoor@company.com | Employee | Finance | 78000.00 | 2021-09-04 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 6b46fb23-5d9d-4a11-a320-e8269a37d20c | Aditya Bhatt | aditya.bhatt@company.com | Employee | Engineering | 81000.00 | 2021-10-09 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 70c1d711-3955-4a46-bd7a-a7b08b2086f2 | Rajat Chawla | rajat.chawla@company.com | Employee | HR | 64000.00 | 2022-09-08 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 72e219ea-0779-4bc4-bc0e-81c7bd23bafa | Pallavi Rao | pallavi.rao@company.com | Employee | HR | 63000.00 | 2022-05-15 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 7554f1c1-338d-4525-80a0-01f9d22b6519 | Tanvi Desai | tanvi.desai@company.com | Employee | Marketing | 66000.00 | 2022-08-29 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 80dfe698-6954-4aba-a97c-fba78de937bd | Harsh Patel | harsh.patel@company.com | Employee | Engineering | 76000.00 | 2022-06-06 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 8fa56c91-19d7-49e3-b87f-073272ba785a | Varun Saxena | varun.saxena@company.com | Employee | Design | 74000.00 | 2022-01-17 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 90675808-0ecc-445b-bcaa-5c3af921ee99 | Tanya Bhatia | tanya.bhatia@company.com | Employee | Marketing | 72000.00 | 2022-07-24 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 9474e45a-36e1-4932-86fc-9e9d312de97d | Yash Agarwal | yash.agarwal@company.com | Employee | Engineering | 88000.00 | 2020-12-11 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 973b70a3-175d-4cad-9586-2e000c082470 | Riya Chatterjee | riya.chatterjee@company.com | Employee | Marketing | 71000.00 | 2022-10-07 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| 9c2576ac-da04-4b73-ab1f-fa17fd4fb314 | Komal Bansal | komal.bansal@company.com | Employee | HR | 62000.00 | 2023-05-26 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| ac255aea-baf6-479f-a0f6-535e5f086492 | Meera Iyer | meera.iyer@company.com | Employee | Sales | 73000.00 | 2023-07-31 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| afbdbb65-06a5-4fd5-862a-5610ee2003f9 | Ananya Gupta | ananya.gupta@company.com | Employee | Design | 68000.00 | 2023-01-11 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| b1d600b2-91ae-4da6-8d76-fbfeda441fe5 | Divya Singh | divya.singh@company.com | Employee | Finance | 82000.00 | 2021-12-08 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| b2e13538-b99e-49a8-856a-c7fe8870bc94 | Gaurav Mishra | gaurav.mishra@company.com | Admin | Engineering | 99000.00 | 2019-10-31 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| bdde1eb0-8c2a-4736-b07f-476510ff19c6 | Diya Verma | diya.verma@company.com | Employee | Marketing | 67000.00 | 2023-08-11 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| bf2eb2ab-cba6-4bc2-8713-8ddf79d3d93b | Akash Tiwari | akash.tiwari@company.com | Employee | Engineering | 83000.00 | 2021-06-13 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| c552bfce-18c0-41b8-a8fa-eef220e25c75 | Priya Sharma | priya.sharma@company.com | Admin | Operations | 88000.00 | 2022-11-19 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| c98a5da4-142d-48c9-98ba-1e8ef4c28f5a | Vikram Rao | vikram.rao@company.com | Employee | HR | 60000.00 | 2022-02-17 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| cb9ab5dd-bf11-493c-bcc2-fa9597c34c57 | Simran Kaur | simran.kaur@company.com | Employee | Sales | 69000.00 | 2023-09-10 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| ceeb9988-25cb-4ef3-b1f0-1c3302be5911 | Bhavna Iyer | bhavna.iyer@company.com | Employee | Operations | 69000.00 | 2023-03-24 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| d605aa05-fdc2-466a-8250-21780f87f44a | Sakshi Dubey | sakshi.dubey@company.com | Employee | Design | 72000.00 | 2023-01-04 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| e46d3697-2f16-45cc-b483-3f2974a2e321 | Snehal Patil | snehal.patil@company.com | Employee | Design | 71000.00 | 2023-06-20 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| e6a19f33-2f0a-4d4f-bc97-7fde760decc1 | Ritesh Sinha | ritesh.sinha@company.com | Admin | HR | 92000.00 | 2020-05-20 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| e9fb3ec3-6a13-4d3f-af44-8f73ae846e85 | Arnav Kapoor | arnav.kapoor@company.com | Employee | Sales | 75000.00 | 2022-04-03 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
+| ee1870a9-244f-44f2-82a1-7db430a23626 | Pranav Joshi | pranav.joshi@company.com | Employee | Engineering | 90000.00 | 2020-02-19 | Active | NULL | NULL | 2026-02-13 | 2026-02-13 |
