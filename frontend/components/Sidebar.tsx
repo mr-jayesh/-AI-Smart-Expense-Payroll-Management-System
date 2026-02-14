@@ -58,15 +58,15 @@ const Sidebar = () => {
                                 <Link
                                     href={item.path}
                                     className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 group relative ${active
-                                            ? 'bg-chart-purple text-white shadow-lg'
-                                            : 'text-gray-400 hover:text-white hover:bg-sidebar-hover'
+                                        ? 'bg-chart-cyan text-white shadow-lg'
+                                        : 'text-gray-400 hover:text-white hover:bg-sidebar-hover'
                                         }`}
                                 >
                                     {/* Active indicator */}
                                     {active && (
                                         <motion.div
                                             layoutId="activeTab"
-                                            className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"
+                                            className="absolute left-0 top-0 bottom-0 w-1 bg-chart-yellow rounded-r-full"
                                             initial={false}
                                             transition={{ type: "spring", stiffness: 500, damping: 30 }}
                                         />
@@ -79,7 +79,7 @@ const Sidebar = () => {
                                     {/* Pulse animation for active item */}
                                     {active && (
                                         <motion.div
-                                            className="absolute right-3 w-2 h-2 bg-white rounded-full"
+                                            className="absolute right-3 w-2 h-2 bg-chart-yellow rounded-full"
                                             animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
                                             transition={{ duration: 2, repeat: Infinity }}
                                         />
