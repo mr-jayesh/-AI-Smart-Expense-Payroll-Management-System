@@ -26,9 +26,34 @@ Ensure you have the following installed:
 
 ---
 
-## 2. Backend Setup (Node.js)
+## 2. Backend Setup (Java Spring Boot)
 
-The Backend handles the core logic and payroll calculations.
+The Backend handles the core logic and payroll calculations using Java Spring Boot.
+
+### Prerequisites
+-   [Java 17 JDK](https://www.oracle.com/java/technologies/downloads/#java17)
+-   [Apache Maven](https://maven.apache.org/download.cgi)
+
+### Steps
+1.  Navigate to the directory:
+    ```bash
+    cd backend_java
+    ```
+2.  Build the project:
+    ```bash
+    mvn clean install
+    ```
+3.  Start the application:
+    ```bash
+    mvn spring-boot:run
+    ```
+    -   The server will run on `http://localhost:3000` (or 8080 depending on config).
+    -   Test Endpoint: `POST http://localhost:3000/api/payroll/calculate`
+
+---
+
+## 2b. Backend Setup (Legacy Node.js)
+*Note: This is an alternative backend implementation.*
 
 1.  Navigate to the directory:
     ```bash
@@ -42,8 +67,6 @@ The Backend handles the core logic and payroll calculations.
     ```bash
     npm start
     ```
-    -   The server will run on `http://localhost:3000`.
-    -   Test Endpoint: `POST http://localhost:3000/api/payroll/calculate`
 
 ---
 

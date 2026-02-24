@@ -209,8 +209,8 @@ export default function Home() {
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: 0.6 + index * 0.1 }}
                                     className={`p-3 rounded-lg border ${alert.severity === 'High'
-                                            ? 'bg-red-50 border-red-200'
-                                            : 'bg-purple-50 border-purple-200'
+                                        ? 'bg-red-50 border-red-200'
+                                        : 'bg-purple-50 border-purple-200'
                                         }`}
                                 >
                                     <div className="flex items-start gap-2">

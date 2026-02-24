@@ -147,7 +147,7 @@ export default function ExpensesPage() {
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Employee</label>
                                 <select required name="user_id" value={formData.user_id} onChange={handleInputChange} className="w-full p-2 border rounded-lg outline-none">
                                     <option value="">Select Employee</option>
-                                    {employees.map(emp => <option key={emp.id} value={emp.id}>{emp.full_name}</option>)}
+                                    {employees.map(emp => <option key={emp.id} value={emp.id}>{emp.fullName}</option>)}
                                 </select>
                             </div>
                             <div>
